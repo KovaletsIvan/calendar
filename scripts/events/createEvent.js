@@ -12,6 +12,9 @@ function clearEventForm() {
 
 function onCloseEventForm() {
   // здесь нужно закрыть модальное окно и очистить форму
+  const closeBtnElem = document.querySelector("create-event__close-btn");
+  closeBtnElem.addEventListener("click", clearEventForm());
+  closeBtnElem.addEventListener("click", closeModal);
 }
 
 function onCreateEvent(event) {

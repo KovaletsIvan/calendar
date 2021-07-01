@@ -1,0 +1,35 @@
+// стили навигации
+.header {
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  padding-left: 120px;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+.create-event-btn,
+.navigation__today-btn,
+.icon-button,
+.navigation__displayed-month {
+  margin-left: 30px;
+}
+
+.day-label {
+  height: 60px;
+  width: 200px;
+  &__day-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    text-transform: uppercase;
+  }
+  &__day-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+  }
+}
+

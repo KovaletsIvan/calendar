@@ -31,6 +31,9 @@ const onChangeWeek = (event) => {
       )
     );
   }
+  if (event.target.dataset.direction == "today") {
+    setItem("displayedWeekStart", getStartOfWeek(new Date()));
+  }
   renderCurrentMonth();
   renderHeader();
   renderWeek();

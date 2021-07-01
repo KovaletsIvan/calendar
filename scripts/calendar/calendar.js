@@ -26,6 +26,7 @@ const generateDay = () => {
 generateDay();
 
 export const renderWeek = () => {
+  
   const weekElem = document.querySelector(".calendar__week");
 
   const newWeek = generateWeekRange(getItem("displayedWeekStart"))
@@ -42,7 +43,7 @@ export const renderWeek = () => {
     .join("");
 
   weekElem.innerHTML = newWeek;
-
+        
   // функция должна сгенерировать разметку недели в виде строки и вставить ее на страницу (в .calendar__week)
   // разметка недели состоит из 7 дней (.calendar__day) отображаемой недели
   // массив дней, которые нужно отобразить, считаем ф-цией generateWeekRange на основе displayedWeekStart из storage
@@ -50,4 +51,4 @@ export const renderWeek = () => {
   // после того, как отрисовали всю сетку для отображаемой недели, нужно отобразить события этой недели с помощью renderEvents
 };
 
-renderWeek();
+

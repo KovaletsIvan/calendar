@@ -4,26 +4,11 @@ import { generateWeekRange } from "../common/time.utils.js";
 import { createNumbersArray } from "../common/createNumbersArray.js";
 
 const generateDay = () => {
-  const timeScaleElem = document.querySelector(".calendar__time-scale");
-  const hourArr = createNumbersArray(9, 25);
-  hourArr[0] = "09";
-  hourArr[hourArr.length - 1] = "00";
 
-  const timeDays = hourArr
-    .map(
-      (elem) =>
-        `<div class = 'time-slot'>
-    <span class = 'time-slot__time'>${elem}:00</span>
-    </div>`
-    )
-    .join("");
-
-  return (timeScaleElem.innerHTML = timeDays);
   // функция должна сгенерировать и вернуть разметку дня в виде строки
   // разметка состоит из 24 часовых временных слотов (.calendar__time-slot)
 };
 
-generateDay();
 
 export const renderWeek = () => {
   

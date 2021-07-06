@@ -26,4 +26,3 @@ const eventExample = {
   start: new Date("2020-03-17T01:10:00.000Z"),
   end: new Date("2020-03-17T04:30:00.000Z"),
 };
-

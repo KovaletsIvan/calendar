@@ -19,16 +19,25 @@ function onCloseEventForm() {
 }
 
 function onCreateEvent(event) {
-  const keyArr = ["title", "date", "start", "stop", "description"];
-  const result = keyArr.map((elem, i) => ({
-    [elem]: [...eventFormElem][i].value,
-  }));
-  const objValue = result.reduce((obj, elem) => Object.assign(obj, elem), {});
-  objValue.id = Math.random();
-  objValue.start = getDateTime(objValue.date, objValue.start);
-  objValue.stop = getDateTime(objValue.date, objValue.stop);
-  setItem("events", objValue);
+  event.preventDefault();
+  const formData = [...new FormData(eventFormElem)].reduce(
+    (obj, [key, value]) => {
+      return { ...obj, [key]: value };
+    },
+    {}
+  );
+  formData.id = Math.random();
+  formData.startTime = getDateTime(
+    JSON.stringify(formData.date),
+    formData.startTime
+  );
+  formData.endTime = getDateTime(
+    JSON.stringify(formData.date),
+    formData.endTime
+  );
+  setItem("events", formData);
   console.log(getItem("events"));
+
   // задача этой ф-ции только добавить новое событие в массив событий, что хранится в storage
   // создавать или менять DOM элементы здесь не нужно. Этим займутся другие ф-ции
   // при подтверждении формы нужно считать данные с формы
@@ -50,5 +59,6 @@ const submitBtn = document.querySelector(".event-form__submit-btn");
 
 submitBtn.addEventListener("click", onCreateEvent);
 submitBtn.addEventListener("click", clearEventForm);
-submitBtn.addEventListener("click", closeModal);
 closeEventFormBtn.addEventListener("click", onCloseEventForm);
+
+

@@ -36,7 +36,6 @@ function onCreateEvent(event) {
     formData.endTime
   );
   setItem("events", formData);
-  console.log(getItem("events"));
 
   // задача этой ф-ции только добавить новое событие в массив событий, что хранится в storage
   // создавать или менять DOM элементы здесь не нужно. Этим займутся другие ф-ции
@@ -59,6 +58,5 @@ const submitBtn = document.querySelector(".event-form__submit-btn");
 
 submitBtn.addEventListener("click", onCreateEvent);
 submitBtn.addEventListener("click", clearEventForm);
+submitBtn.addEventListener("click", closeModal);
 closeEventFormBtn.addEventListener("click", onCloseEventForm);
-
-

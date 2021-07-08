@@ -20,16 +20,12 @@ function onCloseEventForm() {
 
 function onCreateEvent(event) {
   event.preventDefault();
-  const formData = [...new FormData(eventFormElem)].reduce(
-    (obj, [key, value]) => {
-      return { ...obj, [key]: value };
-    },
-    {}
-  );
+  const formData = Object.fromEntries(new FormData(eventFormElem));
   formData.id = Math.random();
   formData.startTime = getDateTime(formData.date, formData.startTime);
   formData.endTime = getDateTime(formData.date, formData.endTime);
   setItem("events", formData);
+  console.log(getItem("events"));
   // задача этой ф-ции только добавить новое событие в массив событий, что хранится в storage
   // создавать или менять DOM элементы здесь не нужно. Этим займутся другие ф-ции
   // при подтверждении формы нужно считать данные с формы

@@ -27,16 +27,9 @@ function onCreateEvent(event) {
     {}
   );
   formData.id = Math.random();
-  formData.startTime = getDateTime(
-    JSON.stringify(formData.date),
-    formData.startTime
-  );
-  formData.endTime = getDateTime(
-    JSON.stringify(formData.date),
-    formData.endTime
-  );
+  formData.startTime = getDateTime(formData.date, formData.startTime);
+  formData.endTime = getDateTime(formData.date, formData.endTime);
   setItem("events", formData);
-
   // задача этой ф-ции только добавить новое событие в массив событий, что хранится в storage
   // создавать или менять DOM элементы здесь не нужно. Этим займутся другие ф-ции
   // при подтверждении формы нужно считать данные с формы
